@@ -1,15 +1,18 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import styles from './home.style'
 
-const Card = () => {
+const Home = () => {
   return (
     <SafeAreaView>
-      <Text>Card</Text>
+      <View style={styles.appBarWrapper}>
+<View style={styles.appBar}>
+
+</View>
+      </View>
     </SafeAreaView>
   )
 }
 
-export default Card
-
-const styles = StyleSheet.create({})
+export default Home
