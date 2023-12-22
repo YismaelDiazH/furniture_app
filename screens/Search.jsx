@@ -1,10 +1,13 @@
 import { TouchableOpacity, TextInput, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import styles from './search.style';
 import { SIZES, COLORS } from '../constants';
 const Search = () => {
+  
+  const [searchText, setSearchText] = useState('');
+
   return (
     <SafeAreaView>
       <View style={styles.searchContainer}>
@@ -19,8 +22,8 @@ const Search = () => {
         <View style={styles.searchWrapper}>
             <TextInput
             style={styles.searchInput}
-            value=""
-            onPressIn={()=>{}}
+            value={searchText}
+            onPressIn={(text) => setSearchText(text)}
             placeholder="What are you looking for?"
             />
         </View>
