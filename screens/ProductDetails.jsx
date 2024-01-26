@@ -8,8 +8,12 @@ import {
   Fontisto,
 } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../constants";
+import { useRoute } from "@react-navigation/native";
 
 const ProductDetails = ({ navigation }) => {
+
+  const route = useRoute();
+  const {item} = route.params;
   const [count, setCount] = useState(10);
   const increment = () => {
     setCount(count + 1);
@@ -32,15 +36,15 @@ const ProductDetails = ({ navigation }) => {
       </View>
       <Image
         source={{
-          uri: "https://images.pexels.com/photos/6707628/pexels-photo-6707628.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+          uri: item.imageUrl,
         }}
         style={styles.image}
       ></Image>
       <View style={styles.details}>
         <View style={styles.titleRow}>
-          <Text style={styles.title}>Product</Text>
+          <Text style={styles.title}>{item.title}</Text>
           <View style={styles.priceWrapper}>
-            <Text style={styles.price}>$ 660,99</Text>
+            <Text style={styles.price}>{item.price}</Text>
           </View>
         </View>
         <View style={styles.ratingRow}>
@@ -63,18 +67,16 @@ const ProductDetails = ({ navigation }) => {
         </View>
         <View style={styles.descriptionWraper}>
           <Text style={styles.description}>Description</Text>
-          <Text style={styles.descText}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, at
-            doloremque ratione magnam quae mollitia molestias repellat, fuga,
-            cupiditate obcaecati libero ad saepe facilis non? Fuga recusandae
-            suscipit minima harum?
+          <Text style={styles.descText}>{item.description}
+          </Text>
+          <Text style={styles.descText}>{item.supplier}
           </Text>
         </View>
         <View style={{ marginBottom: SIZES.small }}>
           <View style={styles.location}>
             <View style={{ flexDirection: "row" }}>
               <Ionicons name="location-outline" size={20} />
-              <Text>Grenoblee</Text>
+              <Text> {item.product_location} </Text>
             </View>
 
             <View style={{ flexDirection: "row" }}>
