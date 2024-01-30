@@ -1,12 +1,12 @@
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {  Text, View, TouchableOpacity } from "react-native";
 import React from "react";
-import { COLORS } from "../constants";
+import { COLORS } from "../../constants/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import styles from "./newRivals.style";
-import ProductList from "../components/products/ProductList";
+import styles from "./Cart.style";
+import { useRoute } from "@react-navigation/native";
 
-const NewRivals = ({ navigation }) => {
+const Cart = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
@@ -20,10 +20,9 @@ const NewRivals = ({ navigation }) => {
           </TouchableOpacity>
           <Text style={styles.heading}> Products </Text>
         </View>
-        <ProductList/>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default NewRivals;
+export default Cart
