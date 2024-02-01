@@ -11,7 +11,7 @@ const useFetch = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.get('http://10.188.254.249:3000/api/products/')
+      const response = await axios.get('https://fast-fjord-22010-5c9f11e5a492.herokuapp.com/api/products/')
       setData(response.data)
       setIsLoading(false)
     } catch (error) {

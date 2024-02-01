@@ -11,10 +11,10 @@ const navigation = useNavigation();
     <View>
       <View style={styles.container}>
         <Text style={styles.welcomeTxt(COLORS.black, SIZES.xSmall)}>
-          Find The Most
+        Le mobilier
         </Text>
         <Text style={styles.welcomeTxt(COLORS.primary, 0)}>
-          Luxurious Furniture
+        Le plus écologique
         </Text>
       </View>
       <View style={styles.searchContainer}>
@@ -26,7 +26,7 @@ const navigation = useNavigation();
             style={styles.searchInput}
             value=""
             onPressIn={()=>navigation.navigate("Search")}
-            placeholder="What are you looking for?"
+            placeholder="Que recherchez-vous ?"
             />
         </View>
         <View>

@@ -1,13 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet,} from "react-native";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback } from "react";
 import BottomTabNavigation from "./navigation/BottomTabNavigation";
 import { Card, ProductDetails, NewRivals } from "./screens";
-import  Cart  from "./components/cart/Cart.jsx"
-
+import Cart from "./components/cart/Cart.jsx";
+import { CartProvider } from "./components/cart/cartContext.js";
+import PaymentScreen from "./components/cart/PaymentScreen.jsx";
+import { LogBox } from 'react-native';
+LogBox.ignoreAllLogs();
 const Stack = createNativeStackNavigator();
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,37 +29,42 @@ export default function App() {
     return null;
   }
   return (
-    <NavigationContainer>
-     <Stack.Navigator>
-      <Stack.Screen
-      name='Bottom Navigation'
-      component={BottomTabNavigation}
-      options={{headerShown: false}}
-      />
-      <Stack.Screen
-      name='Card'
-      component={Card}
-      options={{headerShown: false}}
-      />
-       <Stack.Screen
-      name='ProductDetails'
-      component={ProductDetails}
-      options={{headerShown: false}}
-      />
-       <Stack.Screen
-      name='ProductList'
-      component={NewRivals}
-      options={{headerShown: false}}
-      />
-       <Stack.Screen
-      name='Cart'
-      component={Cart}
-      options={{headerShown: false}}
-      />
-     </Stack.Navigator>
-    </NavigationContainer>
+    <CartProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Bottom Navigation"
+            component={BottomTabNavigation}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Card"
+            component={Card}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ProductDetails"
+            component={ProductDetails}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ProductList"
+            component={NewRivals}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Cart"
+            component={Cart}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen name="PaymentScreen" 
+          component={PaymentScreen} 
+          
+          options={{ headerShown: false }}/>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CartProvider>
   );
 }
 //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
 //
-

@@ -11,9 +11,8 @@ import { COLORS, SIZES } from "../constants";
 import { useRoute } from "@react-navigation/native";
 
 const ProductDetails = ({ navigation }) => {
-
   const route = useRoute();
-  const {item} = route.params;
+  const { item } = route.params;
   const [count, setCount] = useState(10);
   const increment = () => {
     setCount(count + 1);
@@ -67,10 +66,8 @@ const ProductDetails = ({ navigation }) => {
         </View>
         <View style={styles.descriptionWraper}>
           <Text style={styles.description}>Description</Text>
-          <Text style={styles.descText}>{item.description}
-          </Text>
-          <Text style={styles.descText}>{item.supplier}
-          </Text>
+          <Text style={styles.descText}>{item.description}</Text>
+          <Text style={styles.descText}>{item.supplier}</Text>
         </View>
         <View style={{ marginBottom: SIZES.small }}>
           <View style={styles.location}>
@@ -88,10 +85,14 @@ const ProductDetails = ({ navigation }) => {
 
         <View style={styles.cardRow}>
           <TouchableOpacity onPress={() => {}} style={styles.cardBtn}>
-            <Text style={styles.cardTitle}>Buy Now!</Text>
+            <Text style={styles.cardTitle}>Acheter maintenant !</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => {}} style={styles.addCart}>
-            <Fontisto name={"shopping-bag"} size={24} color={COLORS.lightWhite}/>
+            <Fontisto
+              name={"shopping-bag"}
+              size={24}
+              color={COLORS.lightWhite}
+            />
           </TouchableOpacity>
         </View>
       </View>

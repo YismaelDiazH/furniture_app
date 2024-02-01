@@ -14,7 +14,7 @@ const Search = () => {
 
     try {
       const response = await axios.get(
-        `http://10.188.254.249:3000/api/products/search/${searchKey}`
+        `https://fast-fjord-22010-5c9f11e5a492.herokuapp.com/api/products/search/${searchKey}`
       );
       setSearchResults(response.data)
 
@@ -38,7 +38,7 @@ const Search = () => {
             style={styles.searchInput}
             value={searchKey}
             onChangeText={setSearchKey}
-            placeholder="What are you looking for?"
+            placeholder="Que recherchez-vous ?"
           />
         </View>
         <View>
